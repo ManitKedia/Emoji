@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Emotion To Emoji</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+  <div class="container">
+  
+    <center>
+    <h3 class="btn btn-warning heading">Emotion to Emoji App
+      <br>
+      <span>
+      <img id="img1" src="https://image.pngaaa.com/119/1699119-middle.png">
+      <img id="img2" src="https://www.seekpng.com/png/detail/7-78100_thumbs-down-emoji-no-background.png">
+      <img id="img3" src="https://cdn-0.emojis.wiki/emoji-pics/messenger/flexed-biceps-messenger.png"> 
+      <img id="img4"src="https://cdn-0.emojis.wiki/emoji-pics/facebook/ok-hand-facebook.png">
+      <img id="img5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzM_FJgWZxQsC_peu5b03ak1NE4f9lM-TuLg&usqp=CAU">
+      </span>
+    </h3>
+      <br><br>
+
+      <p style="font-size: 22px;">Take your selfie of a gesture to know its meaning!!</p>
+
+      <div class="col-md-4 col-sm-12 col-xs-12">
+	      <label>Webcam View - </label>
+        <div id="camera"></div>
+        <br><br>
+        <button onclick="take_snapshot();" class="btn btn-primary">Capture Image</button>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <label>Prediction 1 -</label>
+        <p class="emotion_name" id="result_emotion_name">
+          <p class="emoji" id="update_emoji"></p>
+        </p>
+        <label>Prediction 2 -</label>
+        <p class="emotion_name" id="result_emotion_name2">
+          <p class="emoji" id="update_emoji2"></p>
+        </p>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <label>Snapshot - </label>
+        <div id="result"></div>
+        <br><br>
+        <button onclick="check();" class="btn btn-success">Predict Emotion</button>
+      </div>
+    </center>
+
+  </div>
+
+<script src="main.js"></script>
+
+  </body>
+</html> 
