@@ -33,5 +33,80 @@ function speak()
     speak_data_1 = "The first prediction is " + prediction_1;
     speak_data_2 = "And the second prediction is " + prediction_2;
     var utterThis = new SpeechSynthesisUtterance(speak_data_1 + speak_data_2);
+    utterThis.rate = 0.5;
     snyth.speak(utterThis);
+}
+
+function check()
+{
+    img = document.getElementById('captured_image');
+    classifier.classify(img, gotResult);
+}
+
+function gotResult(error, results)
+{
+    if (error) 
+    {
+    console.error(error);
+    }
+    else 
+    {
+    console.log(results);
+    document.getElementById("result_emotion_name").innerHTML = results[0].label;
+    document.getElementById("result_emotion_name2").innerHTML = results[1].label;
+    prediction_1 = results[0].label;
+    prediction_2 = results[1].label;
+    speak();
+
+    if (results[0].label == "Like") 
+    {
+    document.getElementById("update_emoji").innerHTML = "https://image.pngaaa.com/119/1699119-middle.png";
+    }
+
+    if (results[0].label == "Unlike") 
+    {
+    document.getElementById("update_emoji").innerHTML = "https://www.seekpng.com/png/detail/7-78100_thumbs-down-emoji-no-background.png";
+    }
+
+    if (results[0].label == "Strength") 
+    {
+    document.getElementById("update_emoji").innerHTML = "https://cdn-0.emojis.wiki/emoji-pics/messenger/flexed-biceps-messenger.png";
+    }
+
+    if (results[0].label == "Amazing") 
+    {
+    document.getElementById("update_emoji").innerHTML = "https://cdn-0.emojis.wiki/emoji-pics/facebook/ok-hand-facebook.png";
+    }
+
+    if (results[0].label == "Did it!") 
+    {
+    document.getElementById("update_emoji").innerHTML = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzM_FJgWZxQsC_peu5b03ak1NE4f9lM-TuLg&usqp=CAU";
+    }
+
+    if (results[1].label == "Like") 
+    {
+    document.getElementById("update_emoji2").innerHTML = "https://image.pngaaa.com/119/1699119-middle.png";
+    }
+
+    if (results[1].label == "Unlike") 
+    {
+    document.getElementById("update_emoji2").innerHTML = "https://www.seekpng.com/png/detail/7-78100_thumbs-down-emoji-no-background.png";
+    }
+
+    if (results[1].label == "Strength") 
+    {
+    document.getElementById("update_emoji2").innerHTML = "https://cdn-0.emojis.wiki/emoji-pics/messenger/flexed-biceps-messenger.png";
+    }
+
+    if (results[1].label == "Amazing") 
+    {
+    document.getElementById("update_emoji2").innerHTML = "https://cdn-0.emojis.wiki/emoji-pics/facebook/ok-hand-facebook.png";
+    }
+
+    if (results[1].label == "Did it!") 
+    {
+    document.getElementById("update_emoji2").innerHTML = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzM_FJgWZxQsC_peu5b03ak1NE4f9lM-TuLg&usqp=CAU";
+    }
+    
+    }
 }
